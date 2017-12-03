@@ -1,0 +1,34 @@
+<html>
+<head>
+    <title>edit restaurant</title>
+</head>
+<body>
+    <h1>Edit restaurant</h1>
+
+<form action="/edit" method="post" enctype="multipart/form-data">
+    
+    <input type="hidden" name="id" value="<%=restaurant._id.toString()%>"/>
+
+        <input name="name" type="text" value="<%=restaurant.name%>">Name<br>
+
+        <input name="borough" type="text" value="<%=restaurant.borough%>">Borough<br>
+
+        <input name="cuisine" type="text" value="<%=restaurant.cuisine%>">Cuisine<br>
+
+        <input name="street" type="text" value="<%=restaurant.address.street%>">Street<br>
+
+        <input name="building" type="text" value="<%=restaurant.address.building%>">Building<br>
+
+	    <input name="zipcode" type="text" value="<%=restaurant.address.zipcode%>">zip code<br>
+
+        <input name="lon" type="text" value="<%=restaurant.address.coord[0]%>">GPS Coordinates (lon.)<br>
+
+        <input name="lat" type="text" value="<%=restaurant.address.coord[1]%>">GPS Coordinates (lat.)<br>
+ 
+        <input name="sampleFile" type="file">Photo<br>
+
+        <input type="submit" value="Edit">
+ 
+</form>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+    "name": "project",
+    "description": "project",
+    "author": "WYT",
+    "version": "0.0.1",
+    "dependencies": {
+        "mongodb": "*",
+        "body-parser" : "*",
+        "mongoose": "*",
+        "express-fileupload": "latest",
+		"express" : "*",
+        "cookie-session": "latest",
+		"ejs" : "*"
+    },
+    "engine": "node >= 0.10.0",
+    "scripts": {"start": "node server"}
+}

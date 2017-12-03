@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title><%=restaurant.name%></title>
+</head>
+<body>
+<H1><%=restaurant.name%></H1>
+<% if(restaurant.photo != "") {%>
+    <img src="data:<%=restaurant.minetype%>;base64,<%=restaurant.photo%>"/><br><br>
+<% } %>
+Borough:<%=restaurant.borough%><br><br>
+Cuisine:<%=restaurant.cuisine%><br><br>
+Building:<%=restaurant.address.building%><br><br>
+Street:<%=restaurant.address.street%><br><br>
+Zipcode:<%=restaurant.address.zipcode%><br><br>
+GPS:[<%=restaurant.address.coord[0]%>,<%=restaurant.address.coord[1]%>]<br><br>
+Rating:
+    <p>
+    <% for(var i = 0; i < restaurant.rating.length; i++){ %>
+        <li><%=i+1%>. <%=restaurant.rating[i].rate%> (<%=restaurant.rating[i].rateBy%>)</li>
+    <% } %>
+    </p>
+Created by:<%=restaurant.createBy%><br><br>
+<a href="/map?lat=<%=restaurant.address.coord[0]%>&lon=<%=restaurant.address.coord[1]%>&zoom=16&name=<%=restaurant.name%>">map</a>
+<br><br>
+    <a href="/rate?_id=<%=restaurant._id.toString()%>">Rate</a>
+    <% if(restaurant.createBy == user_name){%>
+        <a href="/edit?_id=<%=restaurant._id.toString()%>">Edit</a>
+        <a href="/delete?_id=<%=restaurant._id.toString()%>">Delete</a>
+    <% } %>
+    <a href="/list">Back</a>
+</body>
+</html>
+
