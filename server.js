@@ -160,33 +160,7 @@ function find_restaurant(criteria, callback){
 		}
 	});
 }
-/*
-function find_restaurant(db,criteria,callback){
-	var r = [];
-	cursor = db.collection('restaurants').find(criteria); 		
-	cursor.each(function(err, doc) {
-		assert.equal(err, null); 
-		if (doc != null) {
-			r.push(doc);
-		} else {
-			callback(r); 
-		}
-	});
-}
-/*
-function findRestaurants(db,criteria,callback) {
-	var restaurants = [];
-	cursor = db.collection('project').find(criteria,{image:0}); 		
-	cursor.each(function(err, doc) {
-		assert.equal(err, null); 
-		if (doc != null) {
-			restaurants.push(doc);
-		} else {
-			callback(restaurants); 
-		}
-	});
-}
-*/
+
 app.get("/insert", function (req,res) {
 	res.sendFile( __dirname + '/views/newRestaurant.html')
 })
@@ -268,23 +242,6 @@ app.get("/details", function(req,res){
 		}
 	});
 })
-/*
-app.get("/details", function(req,res){
-	MongoClient.connect(mongodburl, function(err, db) {
-		assert.equal(err,null);
-		console.log('Connected to MongoDB\n');
-		var criteria = {};
-		for (key in req.query) {
-				criteria[key] = req.query[key];
-			}
-		find_restaurant(db,criteria,function(restaurants) {
-			db.close();
-			console.log(req.session.username);
-			res.status(200).render("home", {c: restaurants,username:req.session.username,doclen:restaurants.length});
-		});
-	});
-})
-*/
 
 
 app.get("/edit", function(req,res){
