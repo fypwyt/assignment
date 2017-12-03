@@ -84,13 +84,6 @@ app.post("/newuser", function(req, res){
 	newO.password = req.body.password;
 
 	var s = new user(newO);
-	//s.save(function(err) {
-	//	if (err) {
-	//		res.status(500).json(err);
-	//		throw err
-	//	}
-	//	res.redirect('/');
-	//});
 	console.log('About to insert: ' + JSON.stringify(s));
 	MongoClient.connect(mongodburl,function(err,db) {
 		assert.equal(err,null);
@@ -187,13 +180,6 @@ app.post("/insert", function(req, res){
 	}
 
 	var r = new restaurant(nrO);
-	/*r.save(function(err) {
-		if (err) {
-			res.status(500).json(err);
-			throw err
-		}
-		res.redirect('/list');
-	});*/
 	console.log('About to insert: ' + JSON.stringify(r));
 	MongoClient.connect(mongodburl,function(err,db) {
 		assert.equal(err,null);
@@ -272,8 +258,7 @@ app.post("/edit", function(req,res){
 			restaurant.address.building = req.body.building;
 			restaurant.address.zipcode = req.body.zipcode;
 			restaurant.address.coord = coord;
-			//restaurant.photo = new Buffer(req.files.sampleFile.data).toString('base64');
-			//restaurant.minetype = req.files.sampleFile.mimetype;
+
 			if(req.files.sampleFile){
 				restaurant.photo  = new Buffer(req.files.sampleFile.data).toString('base64');
 				restaurant.minetype = req.files.sampleFile.mimetype;
